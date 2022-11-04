@@ -2,5 +2,6 @@
 
 members = [
     "vector",
-    "runner"
+    "runner",
+    "operations",
 ]
