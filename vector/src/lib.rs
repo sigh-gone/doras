@@ -88,4 +88,25 @@ impl PointOps {
             })
             .collect()
     }
+
+    pub fn mult_scalar_3d<T>(point: Point3d<T>, scalar: T) -> Point3d<T>
+    where
+        T: std::ops::Mul + std::ops::Mul<Output = T> + std::marker::Copy,
+    {
+        Point3d {
+            x: point.x * scalar,
+            y: point.y * scalar,
+            z: point.z * scalar,
+        }
+    }
+
+    pub fn mult_scalar_2d<T>(point: Point2d<T>, scalar: T) -> Point2d<T>
+    where
+        T: std::ops::Mul + std::ops::Mul<Output = T> + std::marker::Copy,
+    {
+        Point2d {
+            x: point.x * scalar,
+            y: point.y * scalar,
+        }
+    }
 }
