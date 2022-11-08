@@ -1,3 +1,5 @@
+use std::iter::Sum;
+
 pub struct Point3d<T> {
     x: T,
     y: T,
@@ -109,4 +111,11 @@ impl PointOps {
             y: point.y * scalar,
         }
     }
+}
+
+pub fn dot_product_vec<T>(a: Vec<T>, b: Vec<T>) -> T
+where
+    T: std::ops::Mul + Sum + std::ops::Mul<Output = T> + std::marker::Copy,
+{
+    a.iter().zip(b.iter()).map(|(x, y)| *x * *y).sum()
 }
